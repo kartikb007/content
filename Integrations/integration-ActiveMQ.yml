@@ -105,6 +105,7 @@ script:
     def send_message():
 
         txid = conn.begin()
+        txid = 5
         dest = demisto.args()['destination']
         body = demisto.args()['body']
         conn.send(dest, body, transaction=txid)
@@ -215,3 +216,4 @@ script:
   runonce: false
 tests:
   - ActiveMQ Test
+releaseNotes: "-"
