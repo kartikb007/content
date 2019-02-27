@@ -27,7 +27,7 @@ configuration:
   name: proxy
   defaultvalue: ""
   type: 8
-  required: false
+  required: true
 script:
   script: |-
     var username = params.credentials.identifier;
@@ -262,3 +262,4 @@ script:
       description: application for the query
     description: Performs a batch traffic simulation query using Firewall Analyzer
   runonce: false
+releaseNotes: "-"
