@@ -1887,7 +1887,7 @@ script:
     - contextPath: File.MD5
       description: File MD5 hash
       type: string
-    - contextPath: File.SHA1
+    - contextPath: File.SHA12
       description: File SHA-1 hash
       type: string
     - contextPath: File.Name
