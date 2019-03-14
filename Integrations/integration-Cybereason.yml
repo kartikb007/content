@@ -71,7 +71,7 @@ script:
         del os.environ['http_proxy']
         del os.environ['https_proxy']
 
-    # disable insecure warnings
+    # disable insecure warningsff
     requests.packages.urllib3.disable_warnings()
 
     ''' GLOBAL VARS '''
@@ -1887,7 +1887,7 @@ script:
     - contextPath: File.MD5
       description: File MD5 hash
       type: string
-    - contextPath: File.SHA12
+    - contextPath: File.SHA1
       description: File SHA-1 hash
       type: string
     - contextPath: File.Name
