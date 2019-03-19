@@ -128,7 +128,9 @@ def get_code_file(package_path, script_type):
     :rtype: str
     """
 
-    ignore_regex = r'CommonServerPython\.py|CommonServerUserPython\.py|demistomock\.py|test_.*\.py|_test\.py'
+    ignore_regex = r'CommonServerPython\.py|CommonServerUserPython\.py|' \
+                   r'demistomock\.py|test_.*\.py|_test\.py|_unified\.yml'
+
     script_path = list(filter(lambda x: not re.search(ignore_regex, x),
                               glob.glob(package_path + '*' + script_type)))[0]
     return script_path
@@ -147,13 +149,13 @@ def insert_script_to_yml(package_path, script_type, yml_text, dir_name, yml_data
 
     if dir_name == 'Scripts':
         if yml_data.get('script'):
-            if yml_data['script'] != '-' or yml_data['script'] != '':
+            if yml_data['script'] != '-' and yml_data['script'] != '':
                 raise ValueError("Please change the script to be blank or a dash(-) for package {}"
                                  .format(package_path))
 
     elif dir_name == 'Integrations':
         if yml_data.get('script', {}).get('script'):
-            if yml_data['script']['script'] != '-' or yml_data['script']['script'] != '':
+            if yml_data['script']['script'] != '-' and yml_data['script']['script'] != '':
                 raise ValueError("Please change the script to be blank or a dash(-) for package {}"
                                  .format(package_path))
     else:
